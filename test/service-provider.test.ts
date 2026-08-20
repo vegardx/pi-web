@@ -2,6 +2,7 @@ import type { EventBus } from "@earendil-works/pi-coding-agent";
 import { describe, expect, it } from "vitest";
 import { createWebService } from "../src/service.js";
 import {
+	acquireDelegatedWebTools,
 	acquireWebService,
 	registerWebServiceProvider,
 	WebServiceProviderError,
@@ -26,6 +27,9 @@ describe("web service provider", () => {
 		const service = createWebService();
 		const unregister = registerWebServiceProvider(events, async () => service);
 		expect(await acquireWebService(events)).toBe(service);
+		const tools = acquireDelegatedWebTools(events);
+		expect(tools.map((tool) => tool.name)).toEqual(["search", "fetch"]);
+		expect(tools.every((tool) => tool.identitySha256.length === 64)).toBe(true);
 		unregister();
 		await expect(acquireWebService(events)).rejects.toMatchObject({
 			code: "missing",

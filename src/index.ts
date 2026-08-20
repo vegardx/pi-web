@@ -31,8 +31,12 @@ export {
 	type WebServiceOptions,
 } from "./service.js";
 export {
+	acquireDelegatedWebTools,
 	acquireWebService,
+	acquireWebServiceProvider,
+	type DelegatedWebTool,
 	registerWebServiceProvider,
+	WEB_SERVICE_REQUEST_CHANNEL,
 	type WebServiceProvider,
 	WebServiceProviderError,
 } from "./service-provider.js";

@@ -42,11 +42,13 @@ Pi package and run `/reload`.
 ## Current scope
 
 - interactive Pi tools;
+- exact host-brokered delegated tool declarations for pi-subagent;
 - direct Exa and Context7 REST APIs;
 - bounded text/Markdown retrieval;
 - one shared process-local `WebService`.
 
-Deferred: delegated subagent tools, direct arbitrary HTTP extraction, browser
+The provider publishes delegated declarations, but pi-subagent execution support
+lands separately. Deferred: direct arbitrary HTTP extraction, browser
 execution, PDFs/video, authenticated pages, persistent cache, and repository
 snapshots.
 

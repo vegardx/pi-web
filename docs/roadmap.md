@@ -8,11 +8,12 @@
 - bounded cancellation-aware service;
 - interactive `search` and `fetch` tools;
 - process-local shared service provider;
+- exact host-brokered delegated tool declarations;
 - packed package and local live qualification.
 
 ## Phase 2 — delegated research
 
-- generic host-brokered tool-provider contract in pi-subagent;
+- consume the host-brokered provider contract in pi-subagent;
 - exact pi-web capability and implementation identity in subagent preflight;
 - host-only credentials;
 - delegated `search` and `fetch` tools;
