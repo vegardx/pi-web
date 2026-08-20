@@ -12,10 +12,10 @@ describe("pi-web contracts", () => {
 		expect(isWebRuntimeContract(WEB_RUNTIME_CONTRACT)).toBe(true);
 		expect(WEB_RUNTIME_CONTRACT).toMatchObject({
 			schema: "pi-web-runtime",
-			contractRevision: 1,
+			contractRevision: 2,
 			features: {
 				interactiveTools: true,
-				delegatedTools: false,
+				delegatedTools: true,
 				persistentResources: false,
 				repositorySnapshots: false,
 			},

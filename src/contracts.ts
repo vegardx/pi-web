@@ -2,7 +2,7 @@ import { StringEnum } from "@earendil-works/pi-ai";
 import { type Static, type TSchema, Type } from "typebox";
 import { Value } from "typebox/value";
 
-export const WEB_CONTRACT_REVISION = 1 as const;
+export const WEB_CONTRACT_REVISION = 2 as const;
 
 const Sha256Schema = Type.String({ pattern: "^[a-f0-9]{64}$" });
 const HttpUrlSchema = Type.String({ pattern: "^https?://", maxLength: 8192 });
@@ -165,7 +165,7 @@ export const WEB_RUNTIME_CONTRACT: WebRuntimeContract = Object.freeze({
 	contractRevision: WEB_CONTRACT_REVISION,
 	features: Object.freeze({
 		interactiveTools: true,
-		delegatedTools: false,
+		delegatedTools: true,
 		exaSearch: true,
 		exaFetch: true,
 		context7Search: true,
