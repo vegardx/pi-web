@@ -19,8 +19,8 @@ graph LR
 - Provider credentials remain host-side and are redacted from failures.
 - Every request combines caller cancellation with a bounded timeout.
 - Provider responses are read through a hard byte ceiling and runtime-validated.
-- Tool names, schemas, descriptions, authority, implementation, and identity
-  derive from one declaration.
+- Tool names, labels, schemas, descriptions, prompt guidance, authority, and an
+  explicit implementation revision derive into one declaration identity.
 - The service provider publishes exact bound delegated declarations from the
   same tool registry; credentials and provider clients remain host-side.
 - The extension registers one lazy process-local service provider and verifies

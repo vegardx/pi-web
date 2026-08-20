@@ -2,7 +2,7 @@ import { StringEnum } from "@earendil-works/pi-ai";
 import { type Static, type TSchema, Type } from "typebox";
 import { Value } from "typebox/value";
 
-export const WEB_CONTRACT_REVISION = 2 as const;
+export const WEB_CONTRACT_REVISION = 3 as const;
 
 const Sha256Schema = Type.String({ pattern: "^[a-f0-9]{64}$" });
 const HttpUrlSchema = Type.String({ pattern: "^https?://", maxLength: 8192 });
