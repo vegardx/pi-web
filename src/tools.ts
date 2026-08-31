@@ -163,7 +163,7 @@ export const WEB_TOOL_DECLARATIONS: readonly WebToolDeclaration[] =
 				promptGuidelines: Object.freeze([...definition.promptGuidelines]),
 				identitySha256: identity({
 					contractRevision: WEB_CONTRACT_REVISION,
-					implementationRevision: 1,
+					implementationRevision: 2,
 					name: definition.name,
 					label: definition.label,
 					description: definition.description,

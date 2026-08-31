@@ -220,16 +220,13 @@ export class ExaClient {
 	}
 }
 
-function exaFreshness(freshness: FetchFreshness): {
-	livecrawl: "never" | "fallback" | "always";
-	maxAgeHours: number;
-} {
+function exaFreshness(freshness: FetchFreshness): { maxAgeHours?: number } {
 	switch (freshness) {
 		case "cached":
-			return { livecrawl: "never", maxAgeHours: -1 };
+			return { maxAgeHours: -1 };
 		case "fresh":
-			return { livecrawl: "always", maxAgeHours: 0 };
+			return { maxAgeHours: 0 };
 		case "fallback":
-			return { livecrawl: "fallback", maxAgeHours: 24 };
+			return {};
 	}
 }

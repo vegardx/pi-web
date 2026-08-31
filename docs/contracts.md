@@ -29,9 +29,12 @@ fetch({
 });
 ```
 
-Context7 references require a focused query and do not accept freshness
-controls. URL references use Exa contents retrieval. The default character limit is 20,000 and the hard limit is 50,000.
-Fetched content is external untrusted source material.
+Context7 references require a focused query. Generic clients may send
+`freshness`, but it has no effect on Context7 documentation. URL references use
+Exa contents retrieval: `cached` uses Exa's cache only, `fallback` prefers Exa's
+cache and crawls when absent, and `fresh` requests a live crawl. The default
+character limit is 20,000 and the hard limit is 50,000. Fetched content is
+external untrusted source material.
 
 ## Provider boundary
 

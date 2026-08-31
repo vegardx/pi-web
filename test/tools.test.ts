@@ -5,7 +5,7 @@ import { getWebToolDeclaration, WEB_TOOL_DECLARATIONS } from "../src/tools.js";
 const service = {
 	contract: {
 		schema: "pi-web-runtime",
-		contractRevision: 3,
+		contractRevision: 4,
 		features: {
 			interactiveTools: true,
 			delegatedTools: true,
