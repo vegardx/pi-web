@@ -57,6 +57,35 @@ describe("pi-web service", () => {
 		});
 	});
 
+	it("maps freshness to the current Exa contents contract", async () => {
+		const bodies: Array<Record<string, unknown>> = [];
+		const service = createWebService({
+			exaApiKey: "exa-test-key",
+			fetch: async (_input, init) => {
+				bodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+				return json({
+					results: [
+						{
+							url: "https://example.com/",
+							text: "content",
+						},
+					],
+				});
+			},
+		});
+		for (const freshness of ["cached", "fallback", "fresh"] as const) {
+			await service.fetch(
+				{ id: "test" },
+				{ ref: "https://example.com/", freshness },
+			);
+		}
+		expect(bodies).toHaveLength(3);
+		expect(bodies[0]).toMatchObject({ maxAgeHours: -1 });
+		expect(bodies[1]).not.toHaveProperty("maxAgeHours");
+		expect(bodies[2]).toMatchObject({ maxAgeHours: 0 });
+		for (const body of bodies) expect(body).not.toHaveProperty("livecrawl");
+	});
+
 	it("routes documentation resolution and focused fetch to Context7", async () => {
 		const urls: string[] = [];
 		const service = createWebService({
@@ -109,6 +138,7 @@ describe("pi-web service", () => {
 			{
 				ref: "context7:library:/vercel/next.js",
 				query: "How do Cache Components work?",
+				freshness: "fresh",
 			},
 		);
 		expect(fetched).toMatchObject({

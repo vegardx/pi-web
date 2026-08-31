@@ -192,9 +192,6 @@ export function createWebService(options: WebServiceOptions = {}): WebService {
 			}
 			const maximum = request.maxCharacters ?? DEFAULT_FETCH_CHARACTERS;
 			const libraryId = parseContext7Ref(request.ref);
-			if (libraryId && request.freshness) {
-				throw new Error("freshness is only supported for URL fetches");
-			}
 			const raw = await withRedactedErrors(
 				() =>
 					libraryId
