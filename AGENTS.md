@@ -10,6 +10,8 @@ automation, or authenticated/private page access.
 - `npm run check` — full gate: Biome, TypeScript, Vitest, build, pack smoke.
 - `npm test` — unit and integration tests.
 - `npm run lint:fix` — format and lint fixes.
+- The husky `commit-msg` hook (`scripts/commit-msg.mjs`) enforces Conventional
+  Commits.
 
 ## Boundaries
 
